@@ -1,6 +1,6 @@
 # Databricks notebook source
 # MAGIC %md
-# MAGIC ## This notebook is used to explore the NYC taxi dataset
+# MAGIC ## Explore databricks CLI and upload NYC taxi data to DBFS
 
 # COMMAND ----------
 
@@ -8,6 +8,11 @@
 # MAGIC #### Databricks command line tool (CLI)
 # MAGIC
 # MAGIC Databricks CLI can be used from local machine or directly from cluster. I used the terminal that is available from the cluster (min version LTS 15) to execute the following commands.
+# MAGIC
+# MAGIC Use the following document to install databricks CLI on Windows
+# MAGIC
+# MAGIC https://docs.databricks.com/en/dev-tools/cli/install.html
+# MAGIC
 # MAGIC
 # MAGIC # 
 # MAGIC
@@ -36,6 +41,17 @@
 # MAGIC   libraries               The Libraries API allows you to install and uninstall libraries and get the status of libraries on a cluster.
 # MAGIC   policy-families         View available policy families.
 # MAGIC   ```
+
+# COMMAND ----------
+
+# MAGIC %md
+# MAGIC #### Configure databricks CLI 
+# MAGIC
+# MAGIC Use the following documentation to configure databricks CLI on local computer using token.
+# MAGIC
+# MAGIC https://docs.databricks.com/en/dev-tools/cli/authentication.html
+# MAGIC
+# MAGIC
 
 # COMMAND ----------
 
@@ -71,16 +87,23 @@
 # COMMAND ----------
 
 # MAGIC %md
-# MAGIC ### Create user folder using databricks CLI
+# MAGIC ### Create user folder using databricks CLI and upload files from local
 # MAGIC
 # MAGIC Databricks CLI can be used to create folders in dbfs (databricks file system).
 # MAGIC # 
 # MAGIC
 # MAGIC ```bash
-# MAGIC databricks fs mkdir  dbfs:/user/basus
+# MAGIC databricks fs mkdir  dbfs:/user/basus/nyc_taxi/
+# MAGIC
+# MAGIC databricks fs cp -r . dbfs:/user/basus/nyc_taxi/
+# MAGIC
 # MAGIC ```
 
 # COMMAND ----------
 
 # MAGIC %md
 # MAGIC
+
+# COMMAND ----------
+
+
